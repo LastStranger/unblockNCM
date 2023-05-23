@@ -3,6 +3,7 @@
 
 mod command;
 mod tray_menu;
+// use fix_path_env;
 
 // use std::net::TcpListener;
 // use port_check;
@@ -30,6 +31,7 @@ fn greet(name: &str) -> String {
 // }
 
 fn main() {
+    fix_path_env::fix();
     tauri::Builder::default()
         .system_tray(tray_menu::set_tray_menu())
         .on_system_tray_event(tray_menu::handle_click)
