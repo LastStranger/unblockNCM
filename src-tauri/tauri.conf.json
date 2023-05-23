@@ -51,7 +51,7 @@
         "icons/icon.ico"
       ],
       "resources": ["unblockMusic/*"],
-      "identifier": "unblock_NCM",
+      "identifier": "unblock-NCM",
       "targets": "all"
     },
     "security": {
