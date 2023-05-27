@@ -5,6 +5,8 @@ use tauri::api::process::{Command, CommandEvent};
 use std::process::Command as SysCommand;
 // use tauri::Wry;
 
+
+// 测试端口是否被占用
 #[tauri::command]
 pub fn if_port_available() -> bool {
     // let if_free = port_check::is_local_port_free(8080);
@@ -21,6 +23,7 @@ pub fn if_port_available() -> bool {
     }
 }
 
+// 释放端口
 #[tauri::command]
 pub fn release_port () -> bool {
     let output = SysCommand::new("lsof")
@@ -42,6 +45,7 @@ pub fn release_port () -> bool {
     true
 }
 
+// rust端启动node服务,未完全完成,仅启动了node服务,未获取unblockMusic的输出
 #[tauri::command]
 pub fn start_server(app_handle: tauri::AppHandle) {
     tauri::async_runtime::spawn(async move {
@@ -69,6 +73,7 @@ pub fn start_server(app_handle: tauri::AppHandle) {
     });
 }
 
+// 测试版本
 #[tauri::command]
 pub fn get_node_version() -> String {
     let output = Command::new("node").args(["-v"]).output().unwrap();

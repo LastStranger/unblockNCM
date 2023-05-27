@@ -1,7 +1,85 @@
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
+.container {
+    /* background-color: red; */
+    width: 100vw;
+    height: 100vh;
+    padding: 8px;
+    display: flex;
+    box-sizing: border-box;
 }
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafb);
+.left-content {
+    width: 35vw;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* background-color: blue; */
+}
+.port-status {
+    /* color: red; */
+    margin: 0 auto;
+}
+.right-content {
+    width: 65vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    box-sizing: border-box;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+.log-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template: 1fr / 1f 1fr; */
+}
+.log-desc {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    place-items: center;
+}
+.log-desc > span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.log-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    place-items: center;
+    margin-top: 10px;
+}
+.log-item > .source {
+    /* place-self: center center; */
+}
+.log-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.source-title {
+    margin-right: 10px;
+}
+.source-list {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 100%;
+}
+.source-item {
+    margin-right: 10px;
+}
+.button {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.button:active {
+    opacity: 0.5;
 }

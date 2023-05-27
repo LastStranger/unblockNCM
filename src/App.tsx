@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
+import "normalize.css";
 import "./App.css";
 import { Command } from "@tauri-apps/api/shell";
 import { resolveResource } from "@tauri-apps/api/path";
@@ -11,8 +12,8 @@ function App() {
     const [name, setName] = useState("");
     const childRef = useRef<any>();
     const [sourceList, setSourceList] = useState<any[]>([
-        { name: "酷狗", key: "kugou", active: true },
         { name: "酷我", key: "kuwo", active: true },
+        { name: "酷狗", key: "kugou", active: true },
         { name: "B站", key: "bilibili", active: false },
     ]);
     const [list, setList] = useState<any[]>([]);
@@ -26,7 +27,7 @@ function App() {
     }, []);
 
     const start = async () => {
-        console.log("", 1<=2);
+        console.log("", 1 <= 2);
         const ifPortAvailable = await invoke("if_port_available");
         console.log("%cifPortAvailable", "color: #22E1FF; font-size: 16px", ifPortAvailable);
         if (ifPortAvailable) {
@@ -154,35 +155,57 @@ function App() {
 
     const handleCloseSysProxy = () => {
         const command = new Command("setProxy", ["-setwebproxystate", "Wi-Fi", "off"]).execute();
-    }
+    };
 
     return (
         <div className="container">
-            <div>
-                {sourceList.map(each => (
-                    <div key={each.key}>
-                        <input name={each.name} type="checkbox" checked={each.active} onChange={handleSelect} />
-                        <span>{each.name}</span>
+            <div className="left-content">
+                <div>
+                    <div className="source-list">
+                        <div className="source-title">选择代理来源: </div>
+                        {sourceList.map(each => (
+                            <div key={each.key} className="source-item">
+                                <input name={each.name} type="checkbox" checked={each.active} onChange={handleSelect} />
+                                <span>{each.name}</span>
+                            </div>
+                        ))}
+                        {/*<input type="checkbox" />*/}
+                        {/*酷狗*/}
+                        {/*<input type="checkbox" />*/}
+                        {/*酷我*/}
                     </div>
-                ))}
-                {/*<input type="checkbox" />*/}
-                {/*酷狗*/}
-                {/*<input type="checkbox" />*/}
-                {/*酷我*/}
+                    <div className="button" onClick={start}>
+                        开启代理
+                    </div>
+                    <div className="button" onClick={handleClose}>
+                        关闭代理
+                    </div>
+                    <div className="button" onClick={handleReleasePort}>
+                        强制释放端口
+                    </div>
+                    <div className="button" onClick={handleStartSysProxy}>
+                        开启系统代理
+                    </div>
+                    <div className="button" onClick={handleCloseSysProxy}>
+                        关闭系统代理
+                    </div>
+                </div>
+                <h3 className="port-status">8080端口状态: {portStatus ? "已开启" : "空闲"}</h3>
             </div>
-            <h1>8080端口状态: {portStatus ? "已开启" : "空闲"}</h1>
-            <button onClick={start}>开启代理</button>
-            <button onClick={handleClose}>关闭代理</button>
-            <button onClick={handleReleasePort}>强制释放端口</button>
-            <button onClick={handleStartSysProxy}>开启系统代理</button>
-            <button onClick={handleCloseSysProxy}>关闭系统代理</button>
-            <div>
-                {list.map((each, index) => (
-                    <div key={index}>
-                        <span>{each.name}</span>
-                        <a href={each.url}>音源: {getSource(each.url)}</a>
+            <div className="right-content">
+                <div className="log-title">日志</div>
+                <div>
+                    <div className="log-desc">
+                        <span>歌曲名称</span>
+                        <span>歌曲来源</span>
                     </div>
-                ))}
+                    {list.map((each, index) => (
+                        <div className="log-item" key={index}>
+                            <span>{each.name}</span>
+                            <span className="source">{getSource(each.url)}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
