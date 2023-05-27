@@ -4,8 +4,10 @@
 食用方法:
 首先安装node,然后运行unblockNCM app, 点击开启代理,如果8080端口状态显示已开启则代表软件运行成功 
 ## 注意事项:
-1. 开启系统代理会修改系统的代理配置, 如果你使用clash,可以使用该配置 
-```
+1. 开启系统代理会修改系统的代理配置, 如果你使用clash,可以增加该配置项 
+<details><summary>配置项</summary>
+  
+```yaml
 - {name: "网易云", type: http, server: 127.0.0.1, port: 8080}
 .......
   - name: Netease Music
@@ -40,6 +42,11 @@
  - IP-CIDR,59.111.181.38/32,Netease Music,no-resolve
  - IP-CIDR,59.111.181.60/32,Netease Music,no-resolve
  - DOMAIN-SUFFIX,netease.com,Domestic
-```
+``` 
+  
+然后修改网易云的代理方式
+<img width="237" alt="截屏2023-05-27 17 09 31" src="https://github.com/LastStranger/unblockNCM/assets/29811304/c8bf08e4-64cf-43a9-aca8-a469f8d36c97">
+</details>
+
 3. 某些未知情况会导致端口关闭不了,请使用强制释放端口按钮接触8080端口的占用
 4. B站来源目前有些问题,不建议开启
