@@ -2,8 +2,8 @@
 <img width="793" alt="截屏2023-05-27 16 54 04" src="https://github.com/LastStranger/unblockNCM/assets/29811304/4852726a-da8c-40e8-9441-ca82e3844920">
 
 食用方法:
-首先安装node,然后运行unblockNCM app, 点击开启代理,如果8080端口状态显示已开启则代表软件运行成功
-注意事项:
+首先安装node,然后运行unblockNCM app, 点击开启代理,如果8080端口状态显示已开启则代表软件运行成功 
+## 注意事项:
 1. 开启系统代理会修改系统的代理配置, 如果你使用clash,可以使用该配置 
 ```
 - {name: "网易云", type: http, server: 127.0.0.1, port: 8080}
