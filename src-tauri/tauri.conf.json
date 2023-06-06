@@ -66,9 +66,13 @@
         "resizable": true,
         "title": "unblockNCM",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "transparent": true
       }
     ],
+    "macOSPrivateApi": true,
     "systemTray": {
       "iconPath":"icons/icon.png",
       "iconAsTemplate": true

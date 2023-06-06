@@ -174,20 +174,22 @@ function App() {
                         {/*<input type="checkbox" />*/}
                         {/*酷我*/}
                     </div>
-                    <div className="button" onClick={start}>
-                        开启代理
-                    </div>
-                    <div className="button" onClick={handleClose}>
-                        关闭代理
-                    </div>
-                    <div className="button" onClick={handleReleasePort}>
-                        强制释放端口
-                    </div>
-                    <div className="button" onClick={handleStartSysProxy}>
-                        开启系统代理
-                    </div>
-                    <div className="button" onClick={handleCloseSysProxy}>
-                        关闭系统代理
+                    <div className="button-wrp">
+                        <div className="button" onClick={start}>
+                            开启代理
+                        </div>
+                        <div className="button" onClick={handleClose}>
+                            关闭代理
+                        </div>
+                        <div className="button" onClick={handleReleasePort}>
+                            强制释放端口
+                        </div>
+                        <div className="button" onClick={handleStartSysProxy}>
+                            开启系统代理
+                        </div>
+                        <div className="button" onClick={handleCloseSysProxy}>
+                            关闭系统代理
+                        </div>
                     </div>
                 </div>
                 <h3 className="port-status">8080端口状态: {portStatus ? "已开启" : "空闲"}</h3>
@@ -205,6 +207,17 @@ function App() {
                             <span className="source">{getSource(each.url)}</span>
                         </div>
                     ))}
+                </div>
+                <div className="author-wrp">
+                    <sub>made by</sub>
+                    <h1 className="author">
+                        <span>R</span>
+                        <span>u</span>
+                        <span>s</span>
+                        <span>k</span>
+                        <span>e</span>
+                        <span>r</span>
+                    </h1>
                 </div>
             </div>
         </div>
