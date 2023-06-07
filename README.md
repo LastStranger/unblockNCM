@@ -1,8 +1,11 @@
 ### 一键解锁网易云灰色歌曲, 轻量级应用,支持音源切换,自动设置为系统代理等功能, 持续开发中~~
-<img width="793" alt="截屏2023-05-27 16 54 04" src="https://github.com/LastStranger/unblockNCM/assets/29811304/4852726a-da8c-40e8-9441-ca82e3844920">
+<img width="797" alt="截屏2023-06-07 22 21 28" src="https://github.com/LastStranger/unblockNCM/assets/29811304/d91692d6-2c0e-46f5-989d-6d0ab2085f88">
+
+![截屏2023-06-07 22 17 25](https://github.com/LastStranger/unblockNCM/assets/29811304/74efc876-ab65-4337-b8ef-145416cb1e16)
+
 
 食用方法:
-首先安装node,然后运行unblockNCM app, 点击开启代理,如果8080端口状态显示已开启则代表软件运行成功 
+首先安装node,然后运行unblockNCM app, 点击开启代理,如果8080端口状态显示已开启则代表软件运行成功,然后如果你没有使用其他代理工具的话, 点击"开启系统代理"即可打开网易云食用
 ## 注意事项:
 1. 开启系统代理会修改系统的代理配置, 如果你使用clash,可以增加该配置项避免和clash产生冲突 
 <details><summary>配置项</summary>
@@ -50,3 +53,4 @@
 
 3. 某些未知情况会导致端口关闭不了,请点击强制释放端口按钮解除8080端口的占用
 4. B站来源目前有些问题,不建议开启
+5. 有些音乐可能会和原本的不一样,跟来源有关系,切换来源可能能解决这个问题
