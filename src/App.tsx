@@ -6,11 +6,13 @@ import "./App.css";
 import { Command } from "@tauri-apps/api/shell";
 import { resolveResource } from "@tauri-apps/api/path";
 import notify from "./utils/notification";
+import { appWindow } from "@tauri-apps/api/window";
 
 function App() {
     const [greetMsg, setGreetMsg] = useState("");
     const [name, setName] = useState("");
     const childRef = useRef<any>();
+    const [childId, setChildId] = useState<any>("");
     const [sourceList, setSourceList] = useState<any[]>([
         { name: "酷我", key: "kuwo", active: true },
         { name: "酷狗", key: "kugou", active: true },
@@ -51,7 +53,8 @@ function App() {
                 let strLine = line.trim();
                 console.log("%cstrLine", "color: #22E1FF; font-size: 16px", strLine);
                 if (strLine.indexOf("HTTP Server running") !== -1) {
-                    childRef.current = child;
+                    // childRef.current = child;
+                    setChildId(child);
                     setPortStatus(true);
                 }
                 const index = strLine.indexOf(":");
@@ -75,7 +78,8 @@ function App() {
             // window.child = child;
             console.log("%cchild", "color: #22E1FF; font-size: 16px", child);
         } else {
-            if (!childRef.current) {
+            // if (!childRef.current) {
+            if (!childId) {
                 notify({ title: "端口被占用" });
             } else {
                 notify({ title: "服务已开启" });
@@ -95,10 +99,12 @@ function App() {
 
     const handleClose = async () => {
         // let child = JSON.parse(localStorage.getItem("child") ?? "");
-        console.log("%cchildRefCurrent222", "color: #22E1FF; font-size: 16px", childRef.current);
-        if (childRef.current) {
-            console.log("%cchildRefCurrent", "color: #22E1FF; font-size: 16px", childRef.current);
-            childRef.current.kill();
+        // console.log("%cchildRefCurrent222", "color: #22E1FF; font-size: 16px", childRef.current);
+        // if (childRef.current) {
+        if (childId) {
+            // console.log("%cchildRefCurrent", "color: #22E1FF; font-size: 16px", childRef.current);
+            // childRef.current.kill();
+            childId.kill();
             notify({ title: "服务已关闭" });
         }
         setPortStatus(false);
@@ -158,7 +164,7 @@ function App() {
     };
 
     return (
-        <div className="container">
+        <div className="container" data-tauri-drag-region>
             <div className="left-content">
                 <div>
                     <div className="source-list">
@@ -175,12 +181,15 @@ function App() {
                         {/*酷我*/}
                     </div>
                     <div className="button-wrp">
-                        <div className="button" onClick={start}>
-                            开启代理
-                        </div>
-                        <div className="button" onClick={handleClose}>
-                            关闭代理
-                        </div>
+                        {childId ? (
+                            <div className="button" onClick={handleClose}>
+                                关闭代理
+                            </div>
+                        ) : (
+                            <div className="button" onClick={start}>
+                                开启代理
+                            </div>
+                        )}
                         <div className="button" onClick={handleReleasePort}>
                             强制释放端口
                         </div>
@@ -201,12 +210,14 @@ function App() {
                         <span>歌曲名称</span>
                         <span>歌曲来源</span>
                     </div>
-                    {list.map((each, index) => (
-                        <div className="log-item" key={index}>
-                            <span>{each.name}</span>
-                            <span className="source">{getSource(each.url)}</span>
-                        </div>
-                    ))}
+                    <div className="long-item-wrp">
+                        {list.map((each, index) => (
+                            <div className="log-item" key={index}>
+                                <span>{each.name}</span>
+                                <span className="source">{getSource(each.url)}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
                 <div className="author-wrp">
                     <sub>made by</sub>

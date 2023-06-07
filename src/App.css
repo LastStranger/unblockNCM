@@ -66,6 +66,12 @@ body {
     font-weight: bold;
     font-size: 1.2em;
 }
+.long-item-wrp{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
 .log-item {
     display: grid;
     grid-template-columns: 2fr 1fr;
