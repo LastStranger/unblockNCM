@@ -106,6 +106,7 @@ function App() {
             // childRef.current.kill();
             childId.kill();
             notify({ title: "服务已关闭" });
+            setChildId("");
         }
         setPortStatus(false);
         // node src/server.js & echo $!
