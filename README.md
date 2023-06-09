@@ -1,4 +1,4 @@
-### 一键解锁网易云灰色歌曲, 轻量级应用,支持音源切换, 欢迎提出任何意见~~
+### 一键解锁网易云灰色歌曲, 轻量级应用,支持音源切换, 核心实现来源于[UnblockNeteaseMusic](https://github.com/UnblockNeteaseMusic/server)项目, 欢迎提出任何意见~~
 <img width="797" alt="截屏2023-06-07 22 21 28" src="https://github.com/LastStranger/unblockNCM/assets/29811304/d91692d6-2c0e-46f5-989d-6d0ab2085f88">
 
 ![截屏2023-06-07 22 17 25](https://github.com/LastStranger/unblockNCM/assets/29811304/74efc876-ab65-4337-b8ef-145416cb1e16)
